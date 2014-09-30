@@ -1,0 +1,27 @@
+{
+    "name": "outeredge/edge-magento-module-slideshow",
+    "type": "magento-module",
+    "description": "Slideshow Module by outer/edge",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "outer/edge",
+            "email": "support@outeredgeuk.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:outeredge/edge-magento-module-slideshow.git"
+        }
+    ],
+    "extra": {
+        "map": [
+            ["app/code/local/Edge/Slideshow", "app/code/local/Edge/Slideshow"],
+            ["app/etc/modules/Edge_Slideshow.xml", "app/etc/modules/Edge_Slideshow.xml"]
+        ]
+    }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <cms>
+            <children>
+                <slideshow module="slideshow">
+                    <title>Slideshow</title>
+                    <sort_order>10</sort_order>
+                    <action>slideshow/admin</action>
+                </slideshow>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <edge>
+                        <children>
+                            <slideshow translate="title">
+                                <title>Slideshow</title>
+                                <sort_order>10</sort_order>
+                            </slideshow>
+                        </children>
+                    </edge>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
