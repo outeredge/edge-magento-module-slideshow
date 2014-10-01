@@ -2,7 +2,18 @@
 
 class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
-	protected function _prepareForm()
+    /**
+     * Load Wysiwyg on demand and Prepare layout
+     */
+    protected function _prepareLayout()
+    {
+        parent::_prepareLayout();
+        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
+            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
+        }
+    }
+
+    protected function _prepareForm()
     {
         $model = Mage::registry('slideshow');
 
@@ -27,9 +38,10 @@ class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit_Form extends Mage_Adminhtml_
             'name'  => 'title'
         ));
 
-        $fieldset->addField('description', 'textarea', array(
-            'label' => Mage::helper('slideshow')->__('Description'),
-            'name'  => 'description'
+        $fieldset->addField('description', 'editor', array(
+            'label'  => Mage::helper('slideshow')->__('Description'),
+            'name'   => 'description',
+            'config' => Mage::getSingleton('cms/wysiwyg_config')->getConfig()
         ));
 
         $fieldset->addField('link', 'text', array(
