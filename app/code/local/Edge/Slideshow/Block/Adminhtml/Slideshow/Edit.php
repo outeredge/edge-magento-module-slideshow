@@ -23,6 +23,15 @@ class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit extends Mage_Adminhtml_Block
         ";
     }
 
+    protected function _prepareLayout()
+    {
+        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
+            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
+            $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
+        }
+        parent::_prepareLayout();
+    }
+
     public function getHeaderText()
     {
         return Mage::helper('slideshow')->__('Edit Slide');

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <slideshow_admin_edit>
+        <reference name="head">
+            <action method="addItem"><type>js</type><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name></action>
+            <action method="addItem"><type>js</type><name>tiny_mce/tiny_mce.js</name></action>
+        </reference>
+        <update handle="editor"/>
+    </slideshow_admin_edit>
+</layout>

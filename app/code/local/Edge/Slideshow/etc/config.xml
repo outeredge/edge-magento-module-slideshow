@@ -52,4 +52,13 @@
             </slideshow>
         </routers>
     </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <slideshow>
+                    <file>slideshow.xml</file>
+                </slideshow>
+            </updates>
+        </layout>
+    </adminhtml>
 </config>
