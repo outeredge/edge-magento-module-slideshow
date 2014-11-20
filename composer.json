@@ -12,12 +12,6 @@
     "require": {
         "magento-hackathon/magento-composer-installer": "*"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:outeredge/edge-magento-module-slideshow.git"
-        }
-    ],
     "extra": {
         "map": [
             ["app/code/local/Edge/Slideshow", "app/code/local/Edge/Slideshow"],
