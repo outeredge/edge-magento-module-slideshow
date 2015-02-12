@@ -43,13 +43,13 @@
     </global>
     <admin>
         <routers>
-            <slideshow>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                    <module>Edge_Slideshow</module>
-                    <frontName>slideshow</frontName>
+                    <modules>
+                        <slideshow before="Mage_Adminhtml">Edge_Slideshow_Adminhtml</slideshow>
+                    </modules>
                 </args>
-            </slideshow>
+            </adminhtml>
         </routers>
     </admin>
     <adminhtml>
