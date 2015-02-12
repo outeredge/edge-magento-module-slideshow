@@ -50,6 +50,13 @@
                     </modules>
                 </args>
             </adminhtml>
+            <slideshow>
+                <use>admin</use>
+                <args>
+                    <module>Edge_Slideshow_Adminhtml</module>
+                    <frontName>slideshow</frontName>
+                </args>
+            </slideshow>
         </routers>
     </admin>
     <adminhtml>

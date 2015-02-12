@@ -29,6 +29,7 @@ class Edge_Slideshow_AdminController extends Mage_Adminhtml_Controller_Action
 
     public function indexAction()
     {
+        die(__METHOD__);
         $this->_initAction()
             ->_addContent($this->getLayout()->createBlock('slideshow/adminhtml_slideshow'))
             ->renderLayout();
