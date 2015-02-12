@@ -56,7 +56,7 @@
         <layout>
             <updates>
                 <slideshow>
-                    <file>slideshow.xml</file>
+                    <file>edge/slideshow.xml</file>
                 </slideshow>
             </updates>
         </layout>
