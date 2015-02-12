@@ -19,9 +19,10 @@ class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit_Form extends Mage_Adminhtml_
         $model = Mage::registry('slideshow');
 
         $form = new Varien_Data_Form(array(
-            'id' => 'edit_form',
-            'action' => $this->getData('action'),
-            'method' => 'post'
+            'id'      => 'edit_form',
+            'action'  => $this->getData('action'),
+            'method'  => 'post',
+            'enctype' => 'multipart/form-data'
         ));
         $form->setUseContainer(true);
         $form->setHtmlIdPrefix('slideshow_');
