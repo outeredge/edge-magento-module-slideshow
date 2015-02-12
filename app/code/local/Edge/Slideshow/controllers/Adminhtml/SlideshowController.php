@@ -91,11 +91,6 @@ class Edge_Slideshow_Adminhtml_SlideshowController extends Mage_Adminhtml_Contro
 
             //init model and set data
             $model = Mage::getModel('slideshow/slideshow');
-
-            if ($id = $this->getRequest()->getParam('slideshow_id')) {
-                $model->load($id);
-            }
-
             $model->setData($data);
 
             // try to save it

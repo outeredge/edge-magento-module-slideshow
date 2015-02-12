@@ -34,6 +34,10 @@ class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit_Form extends Mage_Adminhtml_
 
         $wysiwygConfig = Mage::getSingleton('cms/wysiwyg_config')->getConfig();
 
+        if ($model->getId()) {
+            $fieldset->addField('id', 'hidden', array('name' => 'id'));
+        }
+
         $fieldset->addField('title', 'text', array(
             'label' => Mage::helper('slideshow')->__('Title'),
             'name'  => 'title'
