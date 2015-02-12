@@ -16,7 +16,7 @@
         "map": [
             ["app/code/local/Edge/Slideshow", "app/code/local/Edge/Slideshow"],
             ["app/etc/modules/Edge_Slideshow.xml", "app/etc/modules/Edge_Slideshow.xml"],
-            ["app/design/adminhtml/default/default/layout/slideshow.xml", "app/design/adminhtml/default/default/layout/slideshow.xml"]
+            ["app/design/adminhtml/default/default/layout/edge/slideshow.xml", "app/design/adminhtml/default/default/layout/edge/slideshow.xml"]
         ]
     }
 }

@@ -2,38 +2,56 @@
 
 class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
+    /**
+     * Initialize cms page edit block
+     *
+     * @return void
+     */
     public function __construct()
     {
+        $this->_objectId   = 'slideshow_id';
+        $this->_controller = 'adminhtml_slideshow';
+        $this->_blockGroup = 'slideshow';
+
         parent::__construct();
 
-        $this->_objectId = 'id';
-        $this->_blockGroup = 'slideshow';
-        $this->_controller = 'adminhtml_slideshow';
-
+        $this->_updateButton('save', 'label', Mage::helper('cms')->__('Save Slide'));
         $this->_addButton('saveandcontinue', array(
-            'label'     => Mage::helper('slideshow')->__('Save and Continue Edit'),
-            'onclick'   => 'saveAndContinueEdit()',
+            'label'     => Mage::helper('adminhtml')->__('Save and Continue Edit'),
+            'onclick'   => 'saveAndContinueEdit(\''.$this->_getSaveAndContinueUrl().'\')',
             'class'     => 'save',
         ), -100);
 
-        $this->_formScripts[] = "
-            function saveAndContinueEdit(){
-                editForm.submit($('edit_form').action+'back/edit/');
-            }
-        ";
+        $this->_updateButton('delete', 'label', Mage::helper('cms')->__('Delete Slide'));
     }
 
-    protected function _prepareLayout()
-    {
-        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
-            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
-            $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
-        }
-        parent::_prepareLayout();
-    }
-
+    /**
+     * Retrieve text for header element depending on loaded page
+     *
+     * @return string
+     */
     public function getHeaderText()
     {
-        return Mage::helper('slideshow')->__('Edit Slide');
+        if (Mage::registry('slideshow')->getId()) {
+            return Mage::helper('slideshow')->__("Edit Slide '%s'", $this->escapeHtml(Mage::registry('slideshow')->getTitle()));
+        }
+        else {
+            return Mage::helper('slideshow')->__('New Slide');
+        }
+    }
+
+    /**
+     * Getter of url for "Save and Continue" button
+     * tab_id will be replaced by desired by JS later
+     *
+     * @return string
+     */
+    protected function _getSaveAndContinueUrl()
+    {
+        return $this->getUrl('*/*/save', array(
+            '_current'   => true,
+            'back'       => 'edit',
+            'active_tab' => '{{tab_id}}'
+        ));
     }
 }

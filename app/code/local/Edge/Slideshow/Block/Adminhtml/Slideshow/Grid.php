@@ -52,6 +52,6 @@ class Edge_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml_Block
 
     public function getRowUrl($row)
     {
-        return $this->getUrl('*/*/edit', array('id' => $row->getId()));
+        return $this->getUrl('*/*/edit', array('slideshow_id' => $row->getId()));
     }
 }
