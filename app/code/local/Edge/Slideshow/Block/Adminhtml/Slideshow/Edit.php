@@ -3,8 +3,7 @@
 class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
     /**
-     * Initialize cms page edit block
-     *
+     * Initialize slideshow edit block
      * @return void
      */
     public function __construct()
@@ -15,19 +14,24 @@ class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit extends Mage_Adminhtml_Block
 
         parent::__construct();
 
-        $this->_updateButton('save', 'label', Mage::helper('cms')->__('Save Slide'));
+        $this->_updateButton('save', 'label', Mage::helper('slideshow')->__('Save Slide'));
         $this->_addButton('saveandcontinue', array(
             'label'     => Mage::helper('adminhtml')->__('Save and Continue Edit'),
-            'onclick'   => 'saveAndContinueEdit(\''.$this->_getSaveAndContinueUrl().'\')',
+            'onclick'   => 'saveAndContinueEdit()',
             'class'     => 'save',
         ), -100);
 
-        $this->_updateButton('delete', 'label', Mage::helper('cms')->__('Delete Slide'));
+        $this->_updateButton('delete', 'label', Mage::helper('slideshow')->__('Delete Slide'));
+
+        $this->_formScripts[] = "
+            function saveAndContinueEdit(){
+                editForm.submit($('edit_form').action+'back/edit/');
+            }
+        ";
     }
 
     /**
      * Retrieve text for header element depending on loaded page
-     *
      * @return string
      */
     public function getHeaderText()
@@ -41,17 +45,14 @@ class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit extends Mage_Adminhtml_Block
     }
 
     /**
-     * Getter of url for "Save and Continue" button
-     * tab_id will be replaced by desired by JS later
-     *
+     * Get form action URL
      * @return string
      */
-    protected function _getSaveAndContinueUrl()
+    public function getFormActionUrl()
     {
-        return $this->getUrl('*/*/save', array(
-            '_current'   => true,
-            'back'       => 'edit',
-            'active_tab' => '{{tab_id}}'
-        ));
+        if ($this->hasFormActionUrl()) {
+            return $this->getData('form_action_url');
+        }
+        return $this->getUrl('*/' . $this->_blockGroup . '/save');
     }
 }

@@ -90,7 +90,7 @@ class Edge_Slideshow_Adminhtml_SlideshowController extends Mage_Adminhtml_Contro
             }
 
             //init model and set data
-            $model = Mage::getModel('cms/page');
+            $model = Mage::getModel('slideshow/slideshow');
 
             if ($id = $this->getRequest()->getParam('slideshow_id')) {
                 $model->load($id);
@@ -122,7 +122,7 @@ class Edge_Slideshow_Adminhtml_SlideshowController extends Mage_Adminhtml_Contro
             }
             catch (Exception $e) {
                 $this->_getSession()->addException($e,
-                    Mage::helper('cms')->__('An error occurred while saving the page.'));
+                    Mage::helper('slideshow')->__('An error occurred while saving the slide.'));
             }
 
             $this->_getSession()->setFormData($data);
