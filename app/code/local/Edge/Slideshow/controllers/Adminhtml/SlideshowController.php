@@ -71,22 +71,29 @@ class Edge_Slideshow_Adminhtml_SlideshowController extends Mage_Adminhtml_Contro
         // check if data sent
         if ($data = $this->getRequest()->getPost()) {
 
-            if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != ''){
-                try {
-                    $uploader = new Varien_File_Uploader('image');
-                    $uploader->setAllowedExtensions(array('jpg','jpeg','gif','png'));
-                    $uploader->setAllowRenameFiles(true);
-                    $uploader->setFilesDispersion(false);
-                    $result = $uploader->save(Mage::getBaseDir('media') . DS . 'slideshow' . DS, $_FILES['image']['name']);
+            if (!empty($_FILES)) {
+                foreach ($_FILES as $name=>$fileData) {
+                    if (isset($fileData['name']) && $fileData['name'] != '') {
+                        try {
+                            $uploader = new Varien_File_Uploader($name);
+                            $uploader->setAllowedExtensions(array('jpg','jpeg','gif','png'));
+                            $uploader->setAllowRenameFiles(true);
+                            $uploader->setFilesDispersion(false);
 
-                } catch (Exception $e){
-                    Mage::log($e->getMessage());
+                            $dirPath = Mage::getBaseDir('media') . DS . 'slideshow' . DS;
+                            $result = $uploader->save($dirPath, $fileData['name']);
+                            Mage::helper('core/file_storage_database')->saveFile($dirPath . $result['file']);
+
+                        } catch (Exception $e) {
+                            Mage::log($e->getMessage());
+                        }
+
+                        $data[$name] = 'slideshow/' . $result['file'];
+                    }
+                    elseif (is_array($data[$name])) {
+                        $data[$name] = $data[$name]['value'];
+                    }
                 }
-
-                $data['image'] = 'slideshow/' . $result['file'];
-            }
-            elseif (is_array($data['image'])) {
-                $data['image'] = $data['image']['value'];
             }
 
             //init model and set data
