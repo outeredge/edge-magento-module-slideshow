@@ -15,14 +15,14 @@
         <resources>
             <admin>
                 <children>
-                    <edge>
+                    <cms>
                         <children>
                             <slideshow translate="title">
                                 <title>Slideshow</title>
                                 <sort_order>10</sort_order>
                             </slideshow>
                         </children>
-                    </edge>
+                    </cms>
                 </children>
             </admin>
         </resources>
