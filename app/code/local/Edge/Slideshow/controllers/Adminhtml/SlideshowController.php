@@ -75,7 +75,7 @@ class Edge_Slideshow_Adminhtml_SlideshowController extends Mage_Adminhtml_Contro
                 foreach ($_FILES as $name=>$fileData) {
                     if (isset($fileData['name']) && $fileData['name'] != '') {
                         try {
-                            $uploader = new Varien_File_Uploader($name);
+                            $uploader = new Mage_Core_Model_File_Uploader($name);
                             $uploader->setAllowedExtensions(array('jpg','jpeg','gif','png'));
                             $uploader->setAllowRenameFiles(true);
                             $uploader->setFilesDispersion(false);
