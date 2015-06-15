@@ -41,6 +41,15 @@
             </slideshow_setup>
         </resources>
     </global>
+    <default>
+        <system>
+            <media_storage_configuration>
+                <allowed_resources>
+                    <slideshow_image_folder>slideshow</slideshow_image_folder>
+                </allowed_resources>
+            </media_storage_configuration>
+        </system>
+    </default>
     <admin>
         <routers>
             <adminhtml>
