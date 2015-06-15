@@ -82,7 +82,6 @@ class Edge_Slideshow_Adminhtml_SlideshowController extends Mage_Adminhtml_Contro
 
                             $dirPath = Mage::getBaseDir('media') . DS . 'slideshow' . DS;
                             $result = $uploader->save($dirPath, $fileData['name']);
-                            Mage::helper('core/file_storage_database')->saveFile($dirPath . $result['file']);
 
                         } catch (Exception $e) {
                             Mage::log($e->getMessage());
