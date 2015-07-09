@@ -2,6 +2,11 @@
 
 class Edge_Slideshow_Adminhtml_SlideshowController extends Mage_Adminhtml_Controller_Action
 {
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('cms/slideshow');
+    }
+    
     protected function _initAction()
     {
         $this->loadLayout()
