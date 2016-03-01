@@ -2,14 +2,14 @@
     "name": "edge-magento2/module-slideshow",
     "description": "Edge Magento2 Module Slideshow",
     "type": "magento2-module",
-    "version": "0.0.1",
+    "version": "1.0.0-beta",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
     ],
     "require": {
         "php": "~5.5.0|~5.6.0|~7.0.0",
-        "magento/magento-composer-installer": "*"
+        "magento/framework": "1.0.0-beta"
     },
     "extra": {
         "map": [
