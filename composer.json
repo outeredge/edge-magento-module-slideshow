@@ -1,22 +1,22 @@
 {
-    "name": "outeredge/edge-magento-module-slideshow",
-    "type": "magento-module",
-    "description": "Slideshow Module by outer/edge",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "outer/edge",
-            "email": "support@outeredgeuk.com"
-        }
+    "name": "edge-magento2/module-slideshow",
+    "description": "Edge Magento2 Module Slideshow",
+    "type": "magento2-module",
+    "version": "0.0.1",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
     ],
     "require": {
-        "magento-hackathon/magento-composer-installer": "*"
+        "php": "~5.5.0|~5.6.0|~7.0.0",
+        "magento/magento-composer-installer": "*"
     },
     "extra": {
         "map": [
-            ["app/code/local/Edge/Slideshow", "app/code/local/Edge/Slideshow"],
-            ["app/etc/modules/Edge_Slideshow.xml", "app/etc/modules/Edge_Slideshow.xml"],
-            ["app/design/adminhtml/default/default/layout/edge/slideshow.xml", "app/design/adminhtml/default/default/layout/edge/slideshow.xml"]
+            [
+                "*",
+                "Edge/Slideshow"
+            ]
         ]
     }
 }
