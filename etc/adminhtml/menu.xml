@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-    	<add id="Edge_Slideshow::slideshow" title="Slideshow" module="Edge_Slideshow" sortOrder="80" resource="Edge_Slideshow::slideshow"/>
-   	</menu>
+    	<add id="Edge_Slideshow::slideshow" title="Slideshow" module="Edge_Slideshow" sortOrder="10" resource="Edge_Slideshow::slideshow" parent="Magento_Backend::content"/>
+	<add id="Edge_Slideshow::slideshow_slideshow" title="Manage Sliders" module="Edge_Slideshow" sortOrder="10" parent="Edge_Slideshow::slideshow" action="slideshow/slideshow" resource="Edge_Slideshow::slideshow_slideshow"/>
+    </menu>
 </config>

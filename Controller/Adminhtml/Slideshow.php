@@ -46,7 +46,7 @@ abstract class Slideshow extends \Magento\Backend\App\AbstractAction
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Edge_Slideshow::slideshow');
+        return $this->_authorization->isAllowed('Edge_Slideshow::slideshow_slideshow');
     }
 
 }

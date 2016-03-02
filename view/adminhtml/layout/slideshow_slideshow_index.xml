@@ -2,7 +2,7 @@
 
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="styles"/>
-    <update handle="slideshow_grid"/>
+    <update handle="slideshow_slideshow_grid"/>
     <body>
         <referenceContainer name="content">
             <block class="Edge\Slideshow\Block\Adminhtml\Slideshow\Grid" name="admin.slideshow.grid">
