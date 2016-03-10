@@ -1,7 +1,15 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-    	<add id="Edge_Slideshow::slideshow" title="Slideshow" module="Edge_Slideshow" sortOrder="10" resource="Edge_Slideshow::slideshow" parent="Magento_Backend::content"/>
-	<add id="Edge_Slideshow::slideshow_slideshow" title="Manage Sliders" module="Edge_Slideshow" sortOrder="10" parent="Edge_Slideshow::slideshow" action="slideshow/slideshow" resource="Edge_Slideshow::slideshow_slideshow"/>
+<!--    	<add id="Edge_Slideshow::slideshow" title="Slideshow" module="Edge_Slideshow" sortOrder="10" resource="Edge_Slideshow::slideshow" parent="Magento_Backend::content"/>
+	<add id="Edge_Slideshow::view" title="Slide" module="Edge_Slideshow" sortOrder="10" parent="Edge_Slideshow::slideshow" action="slideshow/slideshow/index" resource="Edge_Slideshow::slideshow_index"/>
+        <add id="Edge_Slideshow::slideshow_test" title="Test" module="Edge_Slideshow" sortOrder="10" parent="Edge_Slideshow::slideshow" action="slideshow/slideshow/test" resource="Edge_Slideshow::slideshow_test"/>
+        <add id="Edge_Slideshow::slideshow_template" title="Template" module="Edge_Slideshow" sortOrder="10" parent="Edge_Slideshow::slideshow" action="slideshow/slideshow/template" resource="Edge_Slideshow::slideshow_template"/>-->
+
+        <!-- following row for create a new menu tab magento admin panel -->
+        <add id="Edge_Slideshow::view" title="Slideshow" module="Edge_Slideshow" sortOrder="60" resource="Edge_Slideshow::view"/>
+        <!-- following row for add a menu option in new created menu tab -->
+        <add id="Edge_Slideshow::slideshow" title="Slideshow View" module="Edge_Slideshow" sortOrder="10" parent="Edge_Slideshow::view" action="slideshow/slideshow" resource="Edge_Slideshow::view"/>
+        <!--add id="Webkul_Grid::grid" title="Webkul Grid View" module="Webkul_Grid" sortOrder="10" parent="Webkul_Grid::view" action="grid/grid" resource="Webkul_Grid::view"/-->
     </menu>
 </config>
