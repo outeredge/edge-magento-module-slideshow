@@ -59,6 +59,22 @@ class Edge_Slideshow_Block_Adminhtml_Slideshow_Edit_Form extends Mage_Adminhtml_
             'name'  => 'image'
         ));
 
+        $fieldset->addField('from_date', 'date', array(
+            'name' => 'from_date',
+            'label' => Mage::helper('slideshow')->__('Active From'),
+            'image'  => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/adminhtml/default/default/images/grid-cal.gif',
+            'input_format' => Varien_Date::DATE_INTERNAL_FORMAT,
+            'format' => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM),
+        ));
+
+        $fieldset->addField('to_date', 'date', array(
+            'name' => 'to_date',
+            'label' => Mage::helper('slideshow')->__('Active To'),
+            'image'  => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/adminhtml/default/default/images/grid-cal.gif',
+            'input_format' => Varien_Date::DATE_INTERNAL_FORMAT,
+            'format' => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM),
+        ));
+
         $fieldset->addField('sort_order', 'text', array(
             'label' => Mage::helper('slideshow')->__('Sort Order'),
             'name'  => 'sort_order'
