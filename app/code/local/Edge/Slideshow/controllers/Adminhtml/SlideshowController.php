@@ -104,6 +104,10 @@ class Edge_Slideshow_Adminhtml_SlideshowController extends Mage_Adminhtml_Contro
             $model = Mage::getModel('slideshow/slideshow');
             $model->setData($data);
 
+            if ($model->getToDate()) {
+                $model->setToDate(date('Y-m-d 23:59:00', strtotime($model->getToDate())));
+            }
+            
             // try to save it
             try {
                 // save the data
